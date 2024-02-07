@@ -1,0 +1,10 @@
+Apartado 3
+
+Si ejecutas el programa sin ningún parámetro de entrada sale un menseje de error indicando que se espera al menos una palabra como parámetro. Si lo ejecutas con una sola palabra de la longitud que sea te muestra los caracteres de la misma y una lista con las palabras almacenadas, que en este caso es solo una. En el caso de que introduzcas más de un argumento, te mostrará la longitud de cada uno de ellos por separado y una lista con las palabras que hayas introducido.
+
+
+Apartado 4
+
+1- Para obtener las frecuencias hemos utilizado una función de la clase Collections la cual devuelve el número de veces que un elemento se encuentra en una colección. Otra manera de calcularlas sería recorriendo la lista de longitudes e ir sumando cada vez que aparezca la misma. Lo malo de este otro método es que es necesario más código pudiendo usar una función ya establecida.
+
+2- 
