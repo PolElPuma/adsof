@@ -1,3 +1,10 @@
+/**
+* Esta aplicación cuenta el número de caracteres de cada palabra recibida
+*
+* @author Pol Pumar pol.pumar@estudiante.uam.es y Jorge Ibarreta jorge.ibarreta@estudiante.uam.es
+*
+*/
+
 import java.util.*;
 
 /**
@@ -42,6 +49,11 @@ public class LongitudPalabras {
         return this.palabras.get(palabra);
     }
 
+/**
+     * Devuelve todas las longitudes distitnas
+     * 
+     * @return lista de longitudes distitnas
+     */
     public ArrayList<Integer> getLongitudesUnicas(){
         ArrayList<Integer> difVal = new ArrayList<>();
         for(int s : this.getLongitudes()){
@@ -51,6 +63,12 @@ public class LongitudPalabras {
         return difVal;
     }
 
+    /**
+     * Devuelve el número de veces que aparece una longitud
+     * 
+     * @param longitud
+     * @return su frecuencia
+     */
     public int getFrecuencia(int longitud){
         return Collections.frequency(this.getLongitudes(), longitud);
     }
