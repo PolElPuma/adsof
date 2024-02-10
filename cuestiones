@@ -5,6 +5,6 @@ Si ejecutas el programa sin ningún parámetro de entrada sale un menseje de err
 
 Apartado 4
 
-1- Para obtener las frecuencias hemos utilizado una función de la clase Collections la cual devuelve el número de veces que un elemento se encuentra en una colección. Otra manera de calcularlas sería recorriendo la lista de longitudes e ir sumando cada vez que aparezca la misma. Lo malo de este otro método es que es necesario más código pudiendo usar una función ya establecida.
+1- Para obtener las frecuencias hemos utilizado una función de la clase Collections la cual devuelve el número de veces que un elemento se encuentra en una colección. Otra manera de calcularlas sería recorriendo la lista de longitudes con un bucle e ir sumando un contador cada vez que aparezca la misma. Lo malo de este otro método es que sería menos eficiente al necesitar de un bucle de ese tipo.
 
-2- 
+2- Se podría implementar metiendo una a una las longitudes en una lista sin repeticiones y por tanto si la inserción de error esa longitud se mete en otra lista donde irán las longitudes que están repetidas.
