@@ -54,10 +54,9 @@ public class LongitudPalabras {
      * 
      * @return lista de longitudes distitnas
      */
-    public ArrayList<Integer> getLongitudesUnicas(){
-        ArrayList<Integer> difVal = new ArrayList<>();
+    public HashSet<Integer> getLongitudesUnicas(){
+        HashSet<Integer> difVal = new HashSet<>();
         for(int s : this.getLongitudes()){
-            if(!difVal.contains(s))
                 difVal.add(s);
         }
         return difVal;
