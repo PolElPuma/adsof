@@ -1,0 +1,118 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>410</x><y>150</y><w>210</w><h>40</h></coordinates><panel_attributes>BibliotecaDigital
+--
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1090</x><y>460</y><w>220</w><h>200</h></coordinates><panel_attributes>Lector
+--
+- plan: int
+- puntos: int
+--
++ verLibros(lector: Lector): Libro[]
++ verPlan(lector: Lector): int
++ verSagas(lector: Lector): Saga[]
++ verActos(lector: Lector): Acto[]
++ precioLibros(lector: Lector): int
++ precioSagas(lector: Lector): int
++ precioActos(lector: Lector): int
++ importeMensual(lector: Lector): int
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>440</y><w>210</w><h>80</h></coordinates><panel_attributes>Escritor
+--
+- idFiscal: int
+- comisión: int
+- pseudónimo: String
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>50</x><y>390</y><w>210</w><h>300</h></coordinates><panel_attributes>Libro
+--
+- id: int
+- título: String
+- precio: int
+- genero: String[]
+- añoPubli: int
+- premios: String[]
+- páginas: int
+- puntos: int
+- puntuacion: int[]
+--
++ verPrecio(libro: Libro): int
++ verAño(libro: Libro): int
++ verGéneros(libro: Libro): String[]
++ verAutores(libro: Libro): Escritor[]
++ verPremios(libro: Libro): String[]
++ verPáginas(libro: Libro): int
++ verPuntos(libro: Libro): int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>800</x><y>230</y><w>330</w><h>140</h></coordinates><panel_attributes>&lt;&lt;abstract&gt;&gt;
+Usuario
+--
+- id: int
+- nombre: String
+- nombreUsu: String
+- contraseña: String
+--
++ login(nombreUsu: String, contraseña: String): Boolean
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>840</x><y>780</y><w>210</w><h>80</h></coordinates><panel_attributes>Terjeta de crédito
+--
+- número: int
+- códigoVer: int
+- fechaCad: date
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1290</x><y>190</y><w>210</w><h>150</h></coordinates><panel_attributes>Acto
+--
+- fecha: Date
+- precio: int
+- descuento: int
+- descripción: String
+- autor: String
+- tipo: TipoActo
+--
++ verDescuento(acto: Acto): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>610</x><y>170</y><w>390</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+m1=1   biblioteca
+m2=1..*   usuarios</panel_attributes><additional_attributes>10;10;290;10;290;60</additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>360</y><w>190</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;180;170;180</additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>360</y><w>140</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>120;10;120;160;10;160</additional_attributes></element><element><id>Relation</id><coordinates><x>1040</x><y>650</y><w>260</w><h>210</h></coordinates><panel_attributes>lt=-
+m1=1    propietario
+m2=1..*      tarjetas</panel_attributes><additional_attributes>160;10;160;120;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>670</x><y>510</y><w>190</w><h>350</h></coordinates><panel_attributes>lt=-
+m1=1   propietario
+m2=tarjetas   1..*</panel_attributes><additional_attributes>10;10;10;260;170;330</additional_attributes></element><element><id>Relation</id><coordinates><x>250</x><y>480</y><w>330</w><h>40</h></coordinates><panel_attributes>lt=-
+m1= 1..*  libros escritos
+m2= escritores   1..*</panel_attributes><additional_attributes>10;10;310;10</additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>0</y><w>1100</w><h>480</h></coordinates><panel_attributes>lt=-
+m1= 0..*
+m2= 0..*</panel_attributes><additional_attributes>10;390;10;10;1060;10;1060;460</additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>180</y><w>210</w><h>230</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;&gt;
+m1=1..*   libros
+m2= biblioteca   1</panel_attributes><additional_attributes>10;210;10;10;190;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>690</y><w>240</w><h>300</h></coordinates><panel_attributes>Saga
+--
+- id: int
+- título: String
+- precio: int
+- genero: String[]
+- añoPubli: int
+- autores: String[]
+- premios: String[]
+- páginas: int
+- puntos: int
+- puntuacion: int[]
+-
++ verPrecio(saga: Saga): int
++ verAño(saga: Saga): int
++ verGéneros(saga: Saga): String[]
++ verAutores(saga: Saga): String[]
++ verPremios(saga: Saga): String[]
++ verPáginas(saga: Saga): int
++ verPuntos(saga: Saga): int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1300</x><y>330</y><w>180</w><h>200</h></coordinates><panel_attributes>lt=-
+m1= 0..*  lectores apuntados
+m2= 0..*   actos</panel_attributes><additional_attributes>10;170;100;170;100;10</additional_attributes></element><element><id>Relation</id><coordinates><x>100</x><y>680</y><w>200</w><h>110</h></coordinates><panel_attributes>lt=-
+m1= 1..*  libros en la saga
+m2= saga   0..1</panel_attributes><additional_attributes>10;10;10;80;180;80</additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>60</y><w>890</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+m1=1   biblioteca
+m2=1..*   actos</panel_attributes><additional_attributes>10;90;10;10;810;10;810;130</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>550</y><w>600</w><h>210</h></coordinates><panel_attributes>lt=-
+m1= 0..*  sagas
+m2= lectores   0..1</panel_attributes><additional_attributes>10;180;410;180;410;10;580;10</additional_attributes></element><element><id>Relation</id><coordinates><x>250</x><y>580</y><w>860</w><h>40</h></coordinates><panel_attributes>lt=-
+m1= 0..*  libros
+m2= lectores  0..*</panel_attributes><additional_attributes>10;10;840;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1580</x><y>210</y><w>210</w><h>110</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+TipoActo
+--
+- LECTURAS: int
+- FIRMAS: int
+- ENCUENTROS: int
+- TALLERES: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1490</x><y>260</y><w>110</w><h>30</h></coordinates><panel_attributes>lt=-&gt;</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element></diagram>
