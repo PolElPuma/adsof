@@ -1,0 +1,8 @@
+En este diagrama se ve un diseño de una biblioteca digital en la que se pueden comprar libros individuales, sagas completas y acceder a diferentes actos
+relacionados con los escritores.
+
+Hay dos tipos de usuarios: lectores y escritores. Los escritores pueden comprar todos los libros, sagas y actos que quieran con sus tarjetas asociadas. Los actos
+tendrán un cierto descuento para los lectores con ciertos puntos. A su vez los lectores podrán pagar diferentes planes mensuales para tener privilegios a la hora de
+comprar, como descuentos.
+
+Los escritores estarán relacionados con sus libros y con sus tarjetas en las que quieren cobrar el dinero de sus libros vendidos.
