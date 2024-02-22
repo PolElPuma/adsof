@@ -1,0 +1,28 @@
+importeMensual()
+    total = 0
+
+    total += lector.precioObras()
+    total += lector.precioActos()
+
+    if this.plan == Plan.ESTANDAR then
+        total /= 2
+        total += 9.99
+    else if this.plan == Plan.PREMIUM then
+        total = 19.99
+
+    return total
+
+precioObras()
+	total = 0
+	for obra in this.obras:
+		total += obra.getPrecio()
+	return total
+
+precioActos()
+	total = 0
+	for acto in this.actos:
+		total += acto.getPrecio()
+		if(acto.getPuntosDescuento >= this.puntos)
+			// se asume que el descuento nunca será mayor que el precio del acto
+			total -= acto.getDescuento()
+	return total
