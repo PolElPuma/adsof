@@ -12,7 +12,7 @@ public class Menu{
         this.nMenus++;
         this.id = this.nMenus;
         for(p : plato){
-            if(this.platos.containsKey(p) == false){
+            if(this.platos.contains(p) == false){
                 this.platos.add(plato);
             }
         }
