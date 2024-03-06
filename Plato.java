@@ -3,9 +3,9 @@ import java.util.*;
 
 public class Plato{
 
-    String nombre;
-    Set<Plato> platos = new HashSet<>();
-    Map<Ingrediente, Integer> ings = new HashMap<>();
+    private String nombre;
+    private Set<Plato> platos = new HashSet<>();
+    private Map<Ingrediente, Integer> ings = new HashMap<>();
 
 
 
