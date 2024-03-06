@@ -11,7 +11,7 @@ public class Menu{
     public Menu Menu(Plato... plato){
         this.nMenus++;
         this.id = this.nMenus;
-        for(p : plato){
+        for(Plato p : plato){
             if(this.platos.contains(p) == false){
                 this.platos.add(plato);
             }
