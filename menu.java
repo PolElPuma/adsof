@@ -2,7 +2,7 @@ import java.util.*;
 
 
 public class Menu{
-    private Integer nMenus;
+    private static Integer nMenus;
     private Integer id;
     private Set<Plato> platos = new HashSet<>();
 
