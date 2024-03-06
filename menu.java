@@ -2,7 +2,7 @@ import java.util.*;
 
 
 public class Menu{
-    private static Integer nMenus;
+    private Integer nMenus;
     private Integer id;
     private Set<Plato> platos = new HashSet<>();
 
@@ -12,7 +12,9 @@ public class Menu{
         this.nMenus++;
         this.id = this.nMenus;
         for(p : plato){
-            this.platos.add(plato);
+            if(this.platos.containsKey(p) == false){
+                this.platos.add(plato);
+            }
         }
     }
 }
