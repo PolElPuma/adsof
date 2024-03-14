@@ -1,6 +1,0 @@
-./APAArticleFormatter.java
-./Author.java
-./IEEEArticleFormatter.java
-./Main.java
-./Article.java
-./ArticleFormatter.java
