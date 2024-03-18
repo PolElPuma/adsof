@@ -45,6 +45,26 @@ public class Ingrediente extends Comida{
 		return ret;
 	}
 	
+	public String toFile() {
+		String ret = "INGREDIENTE_" + super.info.getTipo() + ";" + this.nombre+";";
+				try {
+					ret += TipoIngrediente.fromString(tipo).getName();
+				}catch(IllegalArgumentException e){
+					ret+=this.tipo;
+				}
+		return ret+= ";" + info.toFile() + super.checkAlergenos();
+	}
+
+	@Override
+	public String getNombre() {
+		return this.nombre;
+	}
+	
+	public void recopilarIngredientesPlatos(Set<Ingrediente> ingredientesSet, Set<Plato> platosSet) {
+        ingredientesSet.add(this);
+    }
+
+	
 	
 
 }

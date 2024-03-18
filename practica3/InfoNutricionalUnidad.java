@@ -12,6 +12,9 @@ public class InfoNutricionalUnidad extends InfoNutricional{
 		return "INFORMACION NUTRICIONAL POR UNIDAD -> " + super.toString();
 	}
 	
-	
+	@Override
+	public String getTipo() {
+		return "UNIDAD";
+	}
 	
 }

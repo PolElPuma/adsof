@@ -26,5 +26,20 @@ public abstract class Comida {
 		alergenos.add(a);
 	}
 	
+	public String checkAlergenos() {
+		String ret="";
+		for(Alergeno a : Alergeno.values()) {
+			if(alergenos.contains(a)) {
+				ret+=";Y";
+			}else {
+				ret+=";N";
+			}
+		}
+		return ret;
+	}
+	public abstract String getNombre();
+	
+	public abstract void recopilarIngredientesPlatos(Set<Ingrediente> ingredientesSet, Set<Plato> platosSet);
+	
 
 }

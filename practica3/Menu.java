@@ -54,4 +54,33 @@ public class Menu extends Comida{
 		return ret;
 	}
 
+	public void addPlato(Plato p) {
+		this.comidas.add(p);
+        super.info.addInfo(p.getInfo());
+        for(Alergeno a:p.getAlergenos()) {
+        	super.alergenos.add(a);
+        }
+		
+	}
+	
+	public String toFile() {
+		String ret = "MENU";
+		for(Plato p: this.comidas) {
+			ret+=";"+p.getNombre();
+		}
+		return ret;
+	}
+
+	@Override
+	public String getNombre() {
+		return String.valueOf(id);
+	}
+	
+	public void recopilarIngredientesPlatos(Set<Ingrediente> ingredientesSet, Set<Plato> platosSet) {
+        for (Plato plato : comidas) {
+            plato.recopilarIngredientesPlatos(ingredientesSet, platosSet);
+        }
+    }
+	
+
 }

@@ -11,8 +11,14 @@ public class InfoNutricionalPeso extends InfoNutricional{
 	public String toString() {
 		return "INFORMACION NUTRICIONAL POR 100 g -> " + super.toString();
 	}
+	
+	@Override
 	public double getFactor(int cantidad) {
 		return (double) cantidad/100;
+	}
+	@Override
+	public String getTipo() {
+		return "PESO";
 	}
 	
 	

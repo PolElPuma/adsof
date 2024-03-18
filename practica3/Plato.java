@@ -42,6 +42,12 @@ public class Plato extends Comida{
     public String getNombre() {
 		return nombre;
 	}
+    
+    
+
+	public Set<Comida> getComidas() {
+		return comidas.keySet();
+	}
 
 	@Override
     public String toString() {
@@ -60,4 +66,34 @@ public class Plato extends Comida{
 		}
 		return ret;
 	}
+	public String toFile() {
+		String ret = "PLATO;"+this.nombre;
+		for(Comida c: this.comidas.keySet()) {
+			if(Plato.class.isInstance(c)) {
+				ret+=";PLATO "+ c.getNombre();
+			}else {
+				ret+=";INGREDIENTE "+c.getNombre()+":"+this.comidas.get(c);
+			}
+			
+		}
+		return ret;
+	}
+	
+	public boolean contains(Alergeno ...alergenos) {
+		for(Alergeno a: alergenos) {
+			if (super.alergenos.contains(a)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void recopilarIngredientesPlatos(Set<Ingrediente> ingredientesSet, Set<Plato> platosSet) {
+        platosSet.add(this);
+        for (Comida c : this.getComidas()) {
+        	c.recopilarIngredientesPlatos(ingredientesSet, platosSet);
+        }
+    }
+	
+	
 }
