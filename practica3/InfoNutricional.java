@@ -13,7 +13,20 @@ public class InfoNutricional {
 	private double azucar;
 	private double fibra;
 	private double sodio;
-
+	
+	
+	 /**
+     * Costructor de la clase
+     * 
+     * @param calorias
+     * @param hidratos
+     * @param grasas_tot
+     * @param grasas_sat
+     * @param proteinas
+     * @param azucar
+     * @param fibra
+     * @param sodio
+     */
 	public InfoNutricional(double calorias, double hidratos, double grasas_tot, double grasas_sat, double proteinas,
 			double azucar, double fibra, double sodio) {
 		this.calorias = calorias;
@@ -25,7 +38,14 @@ public class InfoNutricional {
 		this.fibra = fibra;
 		this.sodio = sodio;
 	}
-
+	
+	
+	/**
+     * Añadir info a otro objeto
+     * 
+     * @param InfoNutricional info para añadir
+     * @param int cantidad cantidad a añadir
+     */
 	public void addInfo(InfoNutricional info, int cantidad) {
 		double factor = info.getFactor(cantidad);
 		this.calorias += info.calorias * factor;
@@ -37,15 +57,34 @@ public class InfoNutricional {
 		this.fibra += info.fibra * factor;
 		this.sodio += info.sodio * factor;
 	}
-
+	
+	
+	/**
+     * Añadir info a otro objeto
+     * 
+     * @param InfoNutricional info para añadir
+     */
 	public void addInfo(InfoNutricional info) {
 		this.addInfo(info, 1);
 	}
-
+	
+	
+	/**
+     * Obtener el factor correspondiente a un objeto
+     * 
+     * @param int cantidad de factor
+     * @return double factor en cuestion
+     */
 	public double getFactor(int cantidad) {
 		return (double) cantidad;
 	}
-
+	
+	
+	/**
+     * Funcion para poder tratar la clase con ficheros
+     * 
+     * @return String con la InfoNutricional
+     */
 	public String toFile() {
 		DecimalFormat n = new DecimalFormat("#.##");
 		DecimalFormatSymbols customSymbols = new DecimalFormatSymbols(Locale.US);
@@ -70,6 +109,7 @@ public class InfoNutricional {
 	}
 
 	/**
+	 * Getter del campo calorias
 	 * @return the calorias
 	 */
 	public double getCalorias() {
@@ -77,6 +117,7 @@ public class InfoNutricional {
 	}
 
 	/**
+	 * Getter del campo hidratos
 	 * @return the hidratos
 	 */
 	public double getHidratos() {
@@ -84,6 +125,7 @@ public class InfoNutricional {
 	}
 
 	/**
+	 * Getter del campo grasas_tot
 	 * @return the grasas_tot
 	 */
 	public double getGrasa_total() {
@@ -91,6 +133,7 @@ public class InfoNutricional {
 	}
 
 	/**
+	 * Getter del campo grasas_sat
 	 * @return the grasas_sat
 	 */
 	public double getGrasa_saturada() {
@@ -98,6 +141,7 @@ public class InfoNutricional {
 	}
 
 	/**
+	 * Getter del campo proteinas
 	 * @return the proteinas
 	 */
 	public double getProteinas() {
@@ -105,6 +149,7 @@ public class InfoNutricional {
 	}
 
 	/**
+	 * Getter del campo azucares
 	 * @return the azucar
 	 */
 	public double getAzucares() {
@@ -112,6 +157,7 @@ public class InfoNutricional {
 	}
 
 	/**
+	 * Getter del campo fibra
 	 * @return the fibra
 	 */
 	public double getFibra() {
@@ -119,6 +165,7 @@ public class InfoNutricional {
 	}
 
 	/**
+	 * Getter del campo sodio
 	 * @return the sodio
 	 */
 	public double getSodio() {

@@ -9,6 +9,11 @@ public class Menu extends Comida{
 	private static int counter = 0;
 	
 	
+	/**
+     * Crea un menu
+     * 
+     * @param Plato... platos a establecer en el menu
+     */
 	public Menu(Plato ...platos) {
 		super();
 		counter +=1;
@@ -24,6 +29,12 @@ public class Menu extends Comida{
 		
 	}
 	
+	
+	/**
+     * Convirete un menu a String
+     * 
+     * @return String con la informacion de un menu
+     */
     @Override
     public String toString() {
 		String ret = "Menu " + this.id + " [";
@@ -53,7 +64,13 @@ public class Menu extends Comida{
 		}
 		return ret;
 	}
-
+    
+    
+    /**
+     * Añade un plato a un menu
+     * 
+     * @param Plato p a añadir
+     */
 	public void addPlato(Plato p) {
 		this.comidas.add(p);
         super.info.addInfo(p.getInfo());
@@ -63,6 +80,12 @@ public class Menu extends Comida{
 		
 	}
 	
+	
+	/**
+     * Conviarte un menu a String para tratarlo con ficheros
+     * 
+     * @return String con la informacion de un menu
+     */
 	public String toFile() {
 		String ret = "MENU";
 		for(Plato p: this.comidas) {
@@ -70,12 +93,25 @@ public class Menu extends Comida{
 		}
 		return ret;
 	}
-
+	
+	
+	/**
+     * Getter del campo nombre
+     * 
+     * @return String con el nombre del menu
+     */
 	@Override
 	public String getNombre() {
 		return String.valueOf(id);
 	}
 	
+	
+	/**
+     * Añade ingerdientes y platos a un plato
+     * 
+     * @param Set ingerdientes a añadir
+     * @param Platos a añadir
+     */
 	public void recopilarIngredientesPlatos(Set<Ingrediente> ingredientesSet, Set<Plato> platosSet) {
         for (Plato plato : comidas) {
             plato.recopilarIngredientesPlatos(ingredientesSet, platosSet);

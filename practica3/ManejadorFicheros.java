@@ -5,10 +5,18 @@ import java.util.*;
 
 
 public class ManejadorFicheros{
-	 private static Map<String, Ingrediente> ingredientes = new HashMap<>();
+	 	private static Map<String, Ingrediente> ingredientes = new HashMap<>();
 	    private static Map<String, Plato> platosMap = new HashMap<>();
 	    private static List<Menu> menus = new ArrayList<>();
 
+	    
+	    /**
+	     * Lee una lista de menus de un fichero
+	     * 
+	     * @param String nombreArchivo nombre del archivo a leer
+	     * 
+	     * @return List de los menus leidos
+	     */
 	    public static List<Menu> leerFichero(String nombreArchivo) {
 	        try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
 	            String linea;
@@ -26,7 +34,14 @@ public class ManejadorFicheros{
 	        }
 	        return menus;
 	    }
-
+	    
+	    
+	    /**
+	     * Guarda menus en un fichero
+	     * 
+	     * @param String nombreArchivo nombre del archivo a guardar
+	     * @param List menus lista de menus a guardar
+	     */
 	    public static void guardarFichero(String nombreArchivo, List<Menu> menus) {
 	        try (PrintWriter pw = new PrintWriter(new FileWriter(nombreArchivo))) {
 	            Set<Ingrediente> ingredientesSet = new HashSet<>();
@@ -53,7 +68,12 @@ public class ManejadorFicheros{
 	    }
 	    
 	   
-
+	    /**
+	     * Procesa una cadena como un ingrediente
+	     * 
+	     * @param String linea a leer
+	     * 
+	     */
 	    private static void procesarIngrediente(String linea) {
 	        String[] partes = linea.split(";");
 	        String nombre = partes[1];
@@ -79,7 +99,14 @@ public class ManejadorFicheros{
 	            ingredientes.put(nombre, ingrediente);
 	        }
 	    }
-
+	    
+	    
+	    /**
+	     * Procesa una cadena como un plato
+	     * 
+	     * @param String linea a leer
+	     * 
+	     */
 	    private static void procesarPlato(String linea) {
 	        String[] partes = linea.split(";");
 	        String nombre = partes[1];
@@ -98,7 +125,14 @@ public class ManejadorFicheros{
 	            platosMap.put(nombre, plato);
 	        }
 	    }
-
+	    
+	    
+	    /**
+	     * Procesa una cadena como un menu
+	     * 
+	     * @param String linea a leer
+	     * 
+	     */
 	    private static void procesarMenu(String linea) {
 	        String[] partes = linea.split(";");
 	        Menu menu = new Menu();
@@ -108,6 +142,14 @@ public class ManejadorFicheros{
 	        }
 	        menus.add(menu);
 	    }
+	    
+	    
+	    /**
+	     * Getter campo menus
+	     * 
+	     * @return List de los menus
+	     * 
+	     */
 	    public static List<Menu> getMenus(){
 	    	return menus;
 	    }
