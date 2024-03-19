@@ -1,7 +1,6 @@
 package adsof_prac3;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Ingrediente extends Comida{
 	private String tipo;

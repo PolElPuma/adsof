@@ -70,6 +70,7 @@ public abstract class Comida {
 		}
 		return ret;
 	}
+	
 	public abstract String getNombre();
 	
 	public abstract void recopilarIngredientesPlatos(Set<Ingrediente> ingredientesSet, Set<Plato> platosSet);

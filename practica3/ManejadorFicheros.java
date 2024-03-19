@@ -135,8 +135,7 @@ public class ManejadorFicheros{
 	     */
 	    private static void procesarMenu(String linea) {
 	        String[] partes = linea.split(";");
-	        Menu menu = new Menu();
-	        ArrayList<Plato> platos = new ArrayList<>(); 
+	        Menu menu = new Menu(); 
 	        for (int i = 1; i < partes.length; i++) {
 	            menu.addPlato(platosMap.get(partes[i]));
 	        }
@@ -155,4 +154,5 @@ public class ManejadorFicheros{
 	    }
 	}
 
+    
     

@@ -6,36 +6,37 @@ public class PlanificadorMenu {
 
 	private List<Plato> platos = new ArrayList<>();
 	private Map<ElementoNutricional, Double> maximos = new HashMap<>();
-	private HashSet<Alergeno> alergenos = new HashSet<>();
 
 	/**
-	 * Funcion para establecer el campo platos
 	 * @param platos
 	 */
 	public PlanificadorMenu(List<Plato> platos) {
 		this.platos = platos;
 	}
-
 	
 	/**
-     * Elimina de un menu los platos con ciertos alergenos
-     * 
-     * @param Alergeno alergenos a eliminar
-     */
-	public PlanificadorMenu sinAlergenos(Alergeno ...alergenos) {
-		for(Alergeno a : alergenos) {
-			Iterator<Plato> iterator = platos.iterator();
-	        while (iterator.hasNext()) {
-	            Plato p = iterator.next();
+	 * Asigna una nueva lista de platos que no tienen los alergenos
+	 * 
+	 * @param alergenos
+	 * @return this
+	 */
+	public PlanificadorMenu sinAlergenos(Alergeno... alergenos) {
+	    List<Plato> platosSinAlergenos = new ArrayList<>();
+	    for (Plato p : platos) {
+	        boolean contieneAlergeno = false;
+	        for (Alergeno a : alergenos) {
 	            if (p.contains(a)) {
-	                iterator.remove(); // Safe removal
+	                contieneAlergeno = true;
+	                break;
 	            }
 	        }
-		}
-		
-		return this;
+	        if (!contieneAlergeno) {
+	            platosSinAlergenos.add(p);
+	        }
+	    }
+	    this.platos = platosSinAlergenos;
+	    return this;
 	}
-	
 	
 	/**
      * Establece un cierto maximo a un ElementoNutricional
@@ -50,7 +51,6 @@ public class PlanificadorMenu {
 		return this;
 	}
 	
-	
 	/**
      * Crea un menu asegurandose de que cumple unos min y max
      * 
@@ -60,16 +60,38 @@ public class PlanificadorMenu {
      * @return Menu el menu creado o null en caso de error
      */
 	public Menu planificar(int min, int max) {
-		Menu m = new Menu();
-		for(Plato p: platos) {
-			if (m.getInfo().getCalorias() + p.getInfo().getCalorias() < max) {
-				m.addPlato(p);
-			}
-			if(m.getInfo().getCalorias() > min) {
-				return m;
-			}
-		}
-		return null;
+	    for (int r = 1; r <= platos.size(); r++) {
+	        for (int i = 0; i <= platos.size() - r; i++) {
+	            Menu actual = new Menu();
+	            for (int j = i; j < i + r; j++) {
+	                actual.addPlato(platos.get(j));
+	            }
+	            if (esMenuValido(actual, min, max)) {
+	                return actual;
+	            }
+	        }
+	    }
+	    return null;
+	}
+	
+	/**
+	 * Metodo auxiliar para comprobar si un menu cumple los criterios
+	 * 
+	 * @param menu
+	 * @param min
+	 * @param max
+	 * @return
+	 */
+	private boolean esMenuValido(Menu menu, int min, int max) {
+	    if(menu.getInfo().getCalorias() < min || menu.getInfo().getCalorias() > max) {
+	    	return false;
+	    }
+	    for(ElementoNutricional e : maximos.keySet()) {
+	    	if(menu.getInfo().getNutriente(e) > maximos.get(e)) {
+	    		return false;
+	    	}
+	    }
+	    return true;
 	}
 
 }
