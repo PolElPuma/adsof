@@ -14,22 +14,21 @@ public class PruebaComida {
 
         System.out.println("Ingredientes:");
         for (Ingrediente ingrediente : ingredientes.values()) {
-            System.out.println("- " + ingrediente);
+            System.out.println("* " + ingrediente);
         }
         System.out.println();
-
         List<Plato> platos = crearPlatos(ingredientes);
-
         System.out.println("Platos:");
         for (Plato plato : platos) {
-            System.out.println("- " + plato);
+            System.out.println("* " + plato);
         }
         System.out.println();
-
         Menu menu = crearMenu(platos);
-
         System.out.println("Menú:");
         System.out.println(menu);
+        System.out.println("\nPruebas adicionales:");
+        probarErrores(menu, ingredientes);
+        probarCasosExtranos(ingredientes);
     }
 
     public Map<String, Ingrediente> crearIngredientes() {
@@ -60,5 +59,26 @@ public class PruebaComida {
             menu.addPlato(plato);
         }
         return menu;
+    }
+    
+    public void probarErrores(Menu menu, Map<String, Ingrediente> ingredientes) {
+        System.out.println("Intentar añadir un plato que ya está en el menú:");
+        Plato platoDuplicado = new Plato("Pasta con tomate");
+        platoDuplicado.addIngrediente(ingredientes.get("Pasta"), 200);
+        platoDuplicado.addIngrediente(ingredientes.get("Tomate"), 100);
+        menu.addPlato(platoDuplicado);
+        System.out.println("\nIntentar crear un menú sin platos:");
+        Menu menuVacio = new Menu();
+        System.out.println(menuVacio);
+    }
+    
+    public void probarCasosExtranos(Map<String, Ingrediente> ingredientes) {
+        
+        System.out.println("\nCrear un plato con cantidad negativa:");
+        Plato platoCantidadNegativa = new Plato("Plato cantidad negativa");
+        platoCantidadNegativa.addIngrediente(ingredientes.get("Pasta"), -100);
+        platoCantidadNegativa.addIngrediente(ingredientes.get("Tomate"), 100);
+        System.out.println(platoCantidadNegativa);
+        
     }
 }
